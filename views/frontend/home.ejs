@@ -3,19 +3,12 @@
 <link rel="stylesheet" href="/styles/frontend/home.css" />
 <script src="/scripts/paginate.js"></script>
 
-<div class="feature-post">
-    <%- include("./random-video") %>
-</div>
-
-<div class="front-ad">
-    <img src="/images/donate-ad.jpg" />
-    <img src="/images/donate-ad.jpg" />
-</div>
-
-<% if(data.latestPosts){ %>
+<% if(data.latestClothes){ %>
+<div class="Category">Latest arrival dresses</div>
 <div class="Post">
-    <% for(let post of data.latestPosts){ %>
+    <% for(let post of data.latestClothes){ %>
         <div class="thumb">
+            <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
             <a class="wrapper" href="/post/<%= post.key %>">
                 <img src="<%= post.thumb %>" />
                 <% if(post.videos){ %>
@@ -24,21 +17,133 @@
                     <% } %>
                 <% } %>
             </a>
-            <p class="date"><%= (new Date(post.date)).toLocaleDateString("it-IT") %></p>
-            <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
+            <p class="price">$<%= post.price %></p>
         </div>
     <% } %>
 </div>
-<div class="pagination">
-    <p>
-        <% if(data.count - data.fpostLimit === 1){ %>
-            1 more post
-        <% }else if(data.count - data.fpostLimit <= 0){ %>
-            no more post
-        <% }else{ %>
-            <%= data.count - data.fpostLimit %> more posts
-        <% } %>
-    </p>
-    <img class="load" onclick="paginate()" src="/images/loadmore.png" />
+<div class="nav top-nav">
+    <img src="/images/left.png" />
+    <img src="/images/home.png" />
+    <img src="/images/right.png" />
+</div>
+<% } %>
+
+<div class="front-ad">
+    <img src="/images/donate-ad.jpg" />
+    <img src="/images/donate-ad.jpg" />
+</div>
+
+<% if(data.womenClothes){ %>
+<div class="Category">Women dresses</div>
+<div class="Post women">
+    <% for(let post of data.womenClothes){ %>
+        <div class="thumb">
+            <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
+            <a class="wrapper" href="/post/<%= post.key %>">
+                <img src="<%= post.thumb %>" />
+                <% if(post.videos){ %>
+                    <% if((post.videos !== "")&&(post.videos !== "[]")){ %>
+                    <img class="play-icon" src="/images/play.png" />
+                    <% } %>
+                <% } %>
+            </a>
+            <p class="price">$<%= post.price %></p>
+        </div>
+    <% } %>
+</div>
+<div class="nav top-nav">
+    <img src="/images/left.png" />
+    <img src="/images/home.png" />
+    <img src="/images/right.png" />
+</div>
+<% } %>
+
+<div class="front-ad">
+    <img src="/images/donate-ad.jpg" />
+    <img src="/images/donate-ad.jpg" />
+</div>
+
+<% if(data.menClothes){ %>
+    <div class="Category">Men dresses</div>
+<div class="Post men">
+    <% for(let post of data.menClothes){ %>
+        <div class="thumb">
+            <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
+            <a class="wrapper" href="/post/<%= post.key %>">
+                <img src="<%= post.thumb %>" />
+                <% if(post.videos){ %>
+                    <% if((post.videos !== "")&&(post.videos !== "[]")){ %>
+                    <img class="play-icon" src="/images/play.png" />
+                    <% } %>
+                <% } %>
+            </a>
+            <p class="price">$<%= post.price %></p>
+        </div>
+    <% } %>
+</div>
+<div class="nav top-nav">
+    <img src="/images/left.png" />
+    <img src="/images/home.png" />
+    <img src="/images/right.png" />
+</div>
+<% } %>
+
+<div class="front-ad">
+    <img src="/images/donate-ad.jpg" />
+    <img src="/images/donate-ad.jpg" />
+</div>
+
+<% if(data.childrenClothes){ %>
+<div class="Category">Children dresses</div>
+<div class="Post children">
+    <% for(let post of data.childrenClothes){ %>
+        <div class="thumb">
+            <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
+            <a class="wrapper" href="/post/<%= post.key %>">
+                <img src="<%= post.thumb %>" />
+                <% if(post.videos){ %>
+                    <% if((post.videos !== "")&&(post.videos !== "[]")){ %>
+                    <img class="play-icon" src="/images/play.png" />
+                    <% } %>
+                <% } %>
+            </a>
+            <p class="price">$<%= post.price %></p>
+        </div>
+    <% } %>
+</div>
+<div class="nav top-nav">
+    <img src="/images/left.png" />
+    <img src="/images/home.png" />
+    <img src="/images/right.png" />
+</div>
+<% } %>
+
+<div class="front-ad">
+    <img src="/images/donate-ad.jpg" />
+    <img src="/images/donate-ad.jpg" />
+</div>
+
+<% if(data.shoes){ %>
+<div class="Category">New arrival shoes</div>
+<div class="Post Shoes">
+    <% for(let post of data.shoes){ %>
+        <div class="thumb">
+            <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
+            <a class="wrapper" href="/post/<%= post.key %>">
+                <img src="<%= post.thumb %>" />
+                <% if(post.videos){ %>
+                    <% if((post.videos !== "")&&(post.videos !== "[]")){ %>
+                    <img class="play-icon" src="/images/play.png" />
+                    <% } %>
+                <% } %>
+            </a>
+            <p class="price">$<%= post.price %></p>
+        </div>
+    <% } %>
+</div>
+<div class="nav top-nav">
+    <img src="/images/left.png" />
+    <img src="/images/home.png" />
+    <img src="/images/right.png" />
 </div>
 <% } %>

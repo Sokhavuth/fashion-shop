@@ -2,12 +2,12 @@
 
 :root{
     --body-font: 14px/1.5 Vidaloka, OdorMeanChey;
-    --background-dark: #38448d;
-    --background: #5672b1;
-    --background-light: #ebf0ff;
-    --foreground: #f0a66a;
+    --background-dark: #db7f8e;
+    --background: #efbbcc;
+    --background-light: white;
+    --foreground: #ffdbda;
     --color: black;
-    --link: #5672b1;
+    --link: #604d53;
 }
 
 *{
@@ -26,12 +26,12 @@ a:hover{
 }
 
 .region{
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 body{
-    background: var(--backgound);
+    background: var(--backgound-light);
     font: var(--body-font);
     color: var(--color);
 }

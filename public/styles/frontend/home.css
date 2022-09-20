@@ -1,36 +1,35 @@
 /* public/styles/frontend/home.css */
 
-.feature-post a img{
-    width: 100%;
-    float: left;
-}
-
-.feature-post .player{
-    grid-column: 2 / span 3;
-}
-
-.front-ad{
-    display: grid;
-    grid-template-columns: auto auto ;
-    grid-gap: 10px;
-}
-
-.front-ad img{
-    width: 100%;
+.Category{
+    background-color: var(--foreground);
+    margin: 20px 0 0;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
 }
 
 .Post{
     display: grid;
-    grid-template-columns: calc(33.33% - 13.33px) calc(33.33% - 13.33px) 
-    calc(33.33% - 13.33px);
-    grid-gap: 30px 20px;
-    padding-top: 40px;
+    grid-template-columns: calc(20% - 4px) calc(20% - 4px) calc(20% - 4px)
+    calc(20% - 4px) calc(20% - 4px);
+    grid-gap: 5px;
+    padding: 5px 0;
+}
+
+.Post .thumb .title{
+    background-color: var(--foreground);
+    text-align: center;
+    padding: 5px 0;
 }
 
 .Post .thumb .wrapper{
     position: relative;
-    padding-top: 56.25%;
+    padding-top: 128.57%;
     display: block;
+}
+
+.Shoes .thumb .wrapper{
+    padding-top: 100%;
 }
 
 .Post .thumb .wrapper img{
@@ -41,9 +40,9 @@
     height: 100%;
 }
 .Post .thumb .wrapper .play-icon{
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 5px;
+    left: 5px;
     width: 15%;
     height: auto;
     float: none;
@@ -60,8 +59,30 @@
     display: block;
 }
 
-.Post .thumb .date{
-    font-size: 12px;
+.Post .thumb .price{
+    background-color: var(--foreground);
+    padding: 5px;
+}
+
+.nav{
+    text-align: center;
+    padding: 5px 0 0;
+    background-color: var(--foreground);
+}
+
+.nav img{
+    height: 25px;
+}
+
+.front-ad{
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-gap: 10px;
+    padding: 30px 0 10px;
+}
+
+.front-ad img{
+    width: 100%;
 }
 
 .nav-article{
@@ -100,8 +121,16 @@
         padding: 15px;
     }
 
+    .Category{
+        margin: 15px 15px 0;
+    }
+
     .Post{
         grid-template-columns: 100%;
-        padding: 15px;
+        padding: 5px 15px;
+    }
+
+    .nav{
+        margin: 0 15px;
     }
 }

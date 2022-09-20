@@ -21,6 +21,8 @@
                 <option><%= category.title %></option>
                 <% } %>
             </select>
+            <input type="number" name="price" step="any" value="<%= data.item.price %>"
+            required placeholder="$0.00" />
             <input type="text" name="thumb" value="<%= data.item.thumb %>"
             required placeholder="Thumbnail" />
             <input type="datetime-local" name="datetime" value="<%= data.item.date %>" 
@@ -41,6 +43,7 @@
                 <option><%= category.title %></option>
                 <% } %>
             </select>
+            <input type="number" name="price" step="any" required placeholder="$0.00" />
             <input type="text" name="thumb" required placeholder="Thumbnail" />
             <input type="datetime-local" name="datetime" required />
             <input type="submit" value="Publish" />

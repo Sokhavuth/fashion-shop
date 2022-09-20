@@ -26,31 +26,28 @@ class Home{
         setup.route = "/"
         setup.type = "post"
 
-        const amount = 50
-        
-        const query_news = { "categories?contains": "News" }
-        let newsObj = await postdb.getPosts(req, amount, query_news)
-        this.shuffleArray(newsObj.posts)
-        setup.newsThumb = newsObj.posts[0].thumb
-        const news_videos = await this.generateVideos(newsObj.posts)
-        setup.news = JSON.stringify(news_videos)
+        const query = {"categories?not_contains": "Shoes"}
+        const queryWomen = {"categories?contains": "Women"}
+        const queryMen = {"categories?contains": "Men"}
+        const queryChildren = {"categories?contains": "Children"}
+        const queryShoes = {"categories?contains": "Shoes"}
 
-        const query_movie = { "categories?contains": "Movie" }
-        let movieObj = await postdb.getPosts(req, amount, query_movie)
-        this.shuffleArray(movieObj.posts)
-        setup.movieThumb = movieObj.posts[0].thumb
-        const movie_videos = await this.generateVideos(movieObj.posts)
-        setup.movies = JSON.stringify(movie_videos)
-        
-        let postObj = await postdb.getPosts(req, amount)
-        setup.latestPosts = postObj.posts.slice(0, setup.fpostLimit)
-        const post_videos = await this.generateVideos(postObj.posts)
-        this.shuffleArray(post_videos)
-        setup.latestVideos = JSON.stringify(post_videos)
-        
-        setup.count = postObj.length
-        setup.page = 1
+        const {posts, length} = await postdb.getPosts(req, setup.fpostLimit, query)
+        setup.latestClothes = posts
+        setup.count = length
 
+        const womenObj = await postdb.getPosts(req, setup.fpostLimit, queryWomen)
+        setup.womenClothes = womenObj.posts
+
+        const menObj = await postdb.getPosts(req, setup.fpostLimit, queryMen)
+        setup.menClothes = menObj.posts 
+
+        const childrenObj = await postdb.getPosts(req, setup.fpostLimit, queryChildren)
+        setup.childrenClothes = childrenObj.posts 
+
+        const shoesObj = await postdb.getPosts(req, setup.fpostLimit, queryShoes)
+        setup.shoes = shoesObj.posts 
+        
         res.render("base", { data: setup })
     }
 

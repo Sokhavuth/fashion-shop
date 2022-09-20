@@ -14,11 +14,15 @@
     color: black;
 }
 
-.Post form .wrapper,
 .Post .form, 
 .Post .viddata div{
     display: grid;
     grid-template-columns: 20% 32.5% 32.5% 15%;
+}
+
+.Post form .wrapper{
+    display: grid;
+    grid-template-columns: 20% 15% 25% 25%  15%;
 }
 
 .Post .viddata div{
