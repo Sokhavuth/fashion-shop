@@ -7,7 +7,7 @@
     <% if(data.items){ %>
     <div class="inner region">
         <% for(let post of data.items){ %>
-            <div class="thumb">
+            <div class="thumb <%= data.type %>">
                 <a class="wrapper" href="/post/<%= post.key %>">
                     <img src="<%= post.thumb %>" />
                     <% if(post.videos){ %>
@@ -15,6 +15,7 @@
                         <img class="play-icon" src="/images/play.png" />
                         <% } %>
                     <% } %>
+                    <p class="price">$<%= post.price %></p>
                 </a>
                 <p class="date"><%= (new Date(post.date)).toLocaleDateString("it-IT") %></p>
                 <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>

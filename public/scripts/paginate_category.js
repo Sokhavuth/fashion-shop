@@ -24,6 +24,7 @@ function appendItem(items, data){
                         html += `<img class="play-icon" src="/images/play.png" />`
                     }
                 }
+                html += `<p class="price">${'$'+post.price}</p>`
             html += `</a>`
             html += `<p class="date">${(new Date(post.date)).toLocaleDateString("it-IT")}</p>`
             html += `<p class="title"><a href="/post/${post.key}">${post.title}</a></p>`

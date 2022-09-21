@@ -10,8 +10,12 @@
 
 .Page .main .content,
 .Page .main .sidebar{
-    background-color: var(--background-light);
+    background-color: var(--foreground);
     padding: 20px;
+}
+
+.Post .main .content .text-content img{
+    max-width: 100%
 }
 
 .Page .main .content .title{

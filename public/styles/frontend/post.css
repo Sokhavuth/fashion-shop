@@ -9,7 +9,7 @@
 
 .Post .main .content,
 .Post .main .sidebar{
-    background-color: var(--background-light);
+    background-color: var(--foreground);
     padding: 20px;
 }
 
@@ -70,6 +70,10 @@
 .Post .main .content .video .playlist .part:hover{
     cursor: pointer;
     opacity: .7;
+}
+
+.Post .main .content .text-content img{
+    max-width: 100%
 }
 
 .Post .main .content .category .fb-share-button,
