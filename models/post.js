@@ -59,8 +59,8 @@ class Post{
         return await req.mydb.posts.get(req.params.key)
     }
 
-    async paginate(req, amount){
-        const allItems = await this.getAllItems(req)
+    async navigate(req, amount, query={}){
+        const allItems = await this.getAllItems(req, query)
         allItems.sort((a, b) => {     
             let da = new Date(a.date)
             let db = new Date(b.date)

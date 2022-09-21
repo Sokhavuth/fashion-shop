@@ -1,11 +1,11 @@
 <!--views/frontend/home.ejs-->
 
 <link rel="stylesheet" href="/styles/frontend/home.css" />
-<script src="/scripts/paginate.js"></script>
+<script src="/scripts/navigate.js"></script>
 
 <% if(data.latestClothes){ %>
 <div class="Category">Latest arrival dresses</div>
-<div class="Post">
+<div class="Post Latest">
     <% for(let post of data.latestClothes){ %>
         <div class="thumb">
             <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
@@ -21,10 +21,10 @@
         </div>
     <% } %>
 </div>
-<div class="nav top-nav">
-    <img src="/images/left.png" />
-    <img src="/images/home.png" />
-    <img src="/images/right.png" />
+<div class="nav Latest-nav">
+    <img onclick="navigate.getItems(-1,'Latest')" src="/images/left.png" />
+    <img class="home" onclick="navigate.getItems(0,'Latest')" src="/images/home.png" />
+    <img onclick="navigate.getItems(1,'Latest')" src="/images/right.png" />
 </div>
 <% } %>
 
@@ -34,8 +34,8 @@
 </div>
 
 <% if(data.womenClothes){ %>
-<div class="Category">Women dresses</div>
-<div class="Post women">
+<div class="Category women">Women dresses</div>
+<div class="Post Women">
     <% for(let post of data.womenClothes){ %>
         <div class="thumb">
             <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
@@ -51,10 +51,10 @@
         </div>
     <% } %>
 </div>
-<div class="nav top-nav">
-    <img src="/images/left.png" />
-    <img src="/images/home.png" />
-    <img src="/images/right.png" />
+<div class="nav Women-nav">
+    <img onclick="navigate.getItems(-1,'Women')" src="/images/left.png" />
+    <img class="home" onclick="navigate.getItems(0,'Women')" src="/images/home.png" />
+    <img onclick="navigate.getItems(1,'Women')" src="/images/right.png" />
 </div>
 <% } %>
 
@@ -64,8 +64,8 @@
 </div>
 
 <% if(data.menClothes){ %>
-    <div class="Category">Men dresses</div>
-<div class="Post men">
+<div class="Category">Men dresses</div>
+<div class="Post Men">
     <% for(let post of data.menClothes){ %>
         <div class="thumb">
             <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
@@ -81,10 +81,10 @@
         </div>
     <% } %>
 </div>
-<div class="nav top-nav">
-    <img src="/images/left.png" />
-    <img src="/images/home.png" />
-    <img src="/images/right.png" />
+<div class="nav Men-nav">
+    <img onclick="navigate.getItems(-1,'Men')" src="/images/left.png" />
+    <img class="home" onclick="navigate.getItems(0,'Men')" src="/images/home.png" />
+    <img onclick="navigate.getItems(1,'Men')" src="/images/right.png" />
 </div>
 <% } %>
 
@@ -95,7 +95,7 @@
 
 <% if(data.childrenClothes){ %>
 <div class="Category">Children dresses</div>
-<div class="Post children">
+<div class="Post Children">
     <% for(let post of data.childrenClothes){ %>
         <div class="thumb">
             <p class="title"><a href="/post/<%= post.key %>"><%= post.title %></a></p>
@@ -111,10 +111,10 @@
         </div>
     <% } %>
 </div>
-<div class="nav top-nav">
-    <img src="/images/left.png" />
-    <img src="/images/home.png" />
-    <img src="/images/right.png" />
+<div class="nav Children-nav">
+    <img onclick="navigate.getItems(-1,'Children')" src="/images/left.png" />
+    <img class="home" onclick="navigate.getItems(0,'Children')" src="/images/home.png" />
+    <img onclick="navigate.getItems(1,'Children')" src="/images/right.png" />
 </div>
 <% } %>
 
@@ -141,9 +141,9 @@
         </div>
     <% } %>
 </div>
-<div class="nav top-nav">
-    <img src="/images/left.png" />
-    <img src="/images/home.png" />
-    <img src="/images/right.png" />
+<div class="nav Shoes-nav">
+    <img onclick="navigate.getItems(-1,'Shoes')" src="/images/left.png" />
+    <img class="home" onclick="navigate.getItems(0,'Shoes')" src="/images/home.png" />
+    <img onclick="navigate.getItems(1,'Shoes')" src="/images/right.png" />
 </div>
 <% } %>

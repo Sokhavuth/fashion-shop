@@ -74,6 +74,11 @@
     height: 25px;
 }
 
+.nav img:hover{
+    cursor: pointer;
+    opacity: .7;
+}
+
 .front-ad{
     display: grid;
     grid-template-columns: auto auto ;

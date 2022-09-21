@@ -2,58 +2,33 @@
 
 class Navigate{
     constructor(){
-        this.page = 0
-        this.apage = 0
+        this.nav = {
+            "Latest": 0,
+            "Women": 0,
+            "Men": 0,
+            "Children": 0,
+            "Shoes": 0,
+        }
     }
 
     async getItems(page, ele){
-        $(`${ele} .home`).attr('src','/images/loading.gif')
+        $(`.${ele}-nav .home`).attr('src','/images/loading.gif')
 
-        let body = {}
-
-        if(ele === ".top-nav"){
-            if(page !== 0){
-                this.page += page
-                
-                if(this.page < 0){
-                    this.page = 0
-                }
-            }else{
-                this.page = page
+        if(page !== 0){
+            this.nav[ele] += page
+            if(this.nav[ele] < 0){
+                this.nav[ele] = 0
             }
-    
-            body = {
-                page: this.page,
-            }
-            var element = "top_nav"
         }else{
-            
-            if(page !== 0){
-                this.apage += page
-                if(this.apage < 0){
-                    this.apage = 0
-                }
-            }else{
-                this.apage = page
-            }
-    
-            body = {
-                page: this.apage,
-            }
-            var element = "article_nav"
+            this.nav[ele] = page
         }
 
-        this.ele = ele
+        const body = { page: this.nav[ele] }
         
-        $.post(`/navigate/${element}`,body,function(data, status){
+        $.post(`/navigate/${ele}`, body, function(data, status){
             if(data.items.length === 0){
-                if(ele === ".top-nav"){
-                    navigate.page -= 1
-                }else{
-                    navigate.apage -= 1
-                }
-                
-                $(`${ele} .home`).attr('src','/images/home.png')
+                navigate.nav[ele] -= 1
+                $(`.${ele}-nav .home`).attr('src','/images/home.png')
             }else{
                 navigate.generateHmtl(data.items, ele)
             }
@@ -63,30 +38,22 @@ class Navigate{
     async generateHmtl(items, ele){
         let html = ''
 
-        for(let item of items){
-            if(ele === ".top-nav"){
-                html += `<a href="/book/${item.key}">`
-                html += `<img src="${item.bookCover}" />`
-                html += `</a>`
-            }else{
-                html += `<a class="thumb" href="/book/${item.key}">`
-                html += `<img src="${item.thumb}" />`
-                if(item.videos){
-                    if((item.videos !== "")&&(item.videos !== "[]")){
-                        html += `<img class="play-icon" src="/images/play.png" />`
-                    }
+        for(let post of items){
+            html += `<div class="thumb">`
+            html += `<p class="title"><a href="/post/${post.key}">${post.title}</a></p>`
+            html += `<a class="wrapper" href="/post/${post.key}">`
+            html += `<img src="${post.thumb}" />`
+            if(post.videos){
+                if((post.videos !== "")&&(post.videos !== "[]")){
+                    html += `<img class="play-icon" src="/images/play.png" />`
                 }
-                html += `</a>`
             }
+            html += `</a>`
+            html += `<p class="price">${"$"+post.price}</p>`
+            html += `</div>`
         }
-
-        if(ele == ".top-nav"){
-            $('.feature-post').html(html)
-        }else{
-            $('.Article').html(html)
-        }
-
-        $(`${ele} .home`).attr('src','/images/home.png')
+        $(`.${ele}`).html(html)
+        $(`.${ele}-nav .home`).attr('src','/images/home.png')
     }
 }
 

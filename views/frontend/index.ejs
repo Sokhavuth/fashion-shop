@@ -25,6 +25,7 @@
         let men = ''
         let women = ''
         let children = ''
+        let shoes = ''
         let contact = ''
         let about = ''
 
@@ -36,6 +37,8 @@
             women = "active"
         }else if(data.type === "Children"){
             children = "active"
+        }else if(data.type === "Shoes"){
+            shoes = "active"
         }else if(data.route === '/page/1oriwstnm41i'){
             contact = 'active'
         }else if(data.route === '/page/wrwkirgdwbbv'){
@@ -48,6 +51,7 @@
                 <a href="/category/Men" class="<%= men %>">Men</a>
                 <a href="/category/Women" class="<%= women %>">Women</a>
                 <a href="/category/Children" class="<%= children %>">Children</a>
+                <a href="/category/Shoes" class="<%= shoes %>">Shoes</a>
                 <a href="/page/1oriwstnm41i" class="contact <%= contact %>">Contact</a>
                 <a href="/page/wrwkirgdwbbv" class="about <%= about %>">About</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">

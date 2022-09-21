@@ -64,17 +64,20 @@ class Home{
     async navigate(req, res){
         const setup = await req.mysetup()
         
-        if(req.params.element == "top_nav"){
-            var query = {"bookCover?ne": null, "bookCover?ne": ""}
-            var { books, length } = await bookdb.navigate(req, 5, query)
-            
-        }else{
-            var query = {}
-            var { books, length } = await bookdb.navigate(req, 13, query)
+        const query = {
+            "Latest": {"categories?not_contains": "Shoes"},
+            "Women": {"categories?contains": "Women"},
+            "Men": {"categories?contains": "Men"},
+            "Children": {"categories?contains": "Children"},
+            "Shoes": {"categories?contains": "Shoes"},
         }
+
+        const label = req.params.label
+
+        const {posts, length} = await postdb.navigate(req, setup.fpostLimit, query[label])
         
         setup.count = length
-        setup.items = books
+        setup.items = posts
         res.json(setup)
     }
 
