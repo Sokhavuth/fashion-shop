@@ -58,7 +58,7 @@
     display: block;
     height: auto;
     font-size: 16px;
-    background: rgb(208, 215, 233);
+    background: var(--background);
     border: 1px solid white;
     border-top: none;
 }
